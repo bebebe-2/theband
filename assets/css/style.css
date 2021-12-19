@@ -87,9 +87,10 @@ html {
     height: 46px;
     background-color: #000;
     position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
 #nav { 
@@ -124,9 +125,7 @@ html {
     color: #000;
     background-color: #ccc;
 }
-
 #nav .subnav {
-    display: none;
     min-width: 160px;
     top: 100%;
     position: absolute;
@@ -141,9 +140,16 @@ html {
 }
 #nav .nav-arrow-down {
     font-size: 12px;
-
-
 }
+#header .mobile-menu-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
+}
+
+
+#header .mobile-menu-btn,
 #header .search-btn {
     float: right;
     padding: 0 21px;
@@ -152,6 +158,13 @@ html {
     background-color: #f44336;
     cursor: pointer;
 }
+#header .mobile-menu-btn:hover .menu-icon {
+    color: #000 x;
+}
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+}
+#header .menu-icon,
 #header .search-icon {
     color: #fff;
     font-size: 20px;
@@ -171,7 +184,7 @@ html {
     /* url link ảnh, vị trí / size , lặp lại hay k */
 }
 #slider .text-content{
-    position: absolute;
+    position: relative;
     bottom: 47px;
     color: #fff;
     width: 100%;

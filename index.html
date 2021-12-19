@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <!-- code trên để tạo thẻ link html với css link:css ./ là ngang cấp -->
     <link rel="stylesheet" href="./assets/css/fonts/themify-icons.css">
 </head>
@@ -18,7 +19,8 @@
                 <li><a href="#band">Band</a></li>
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="">More
+                <li><a href="#">
+                    More
                     <i class="nav-arrow-down ti-angle-down"></i>
                 </a>
                     <ul class="subnav">
@@ -29,6 +31,10 @@
                 </li>
             </ul>   
             <!-- end nav -->
+            <!-- Mobile menu button -->
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
+            </div>
         
             <!-- begin search button -->
             <div class="search-btn">
@@ -197,7 +203,37 @@
         </footer>
         
     </div>
+    <script>    
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        
+        // đóng mở mobile menu
+        mobileMenu.onclick = function() {
+            var isClosed = header.clientHeight === 46;
+            if (isClosed) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
 
+        }
+        
+        //tự động đóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+
+            menuItem.onclick = function(event) {
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav');
+                if (isParentMenu) {
+                    event.preventDefault();
+                } else {
+                    header.style.height = null;
+                }
+            }
+            
+        }
+    </script>
             
 </body>
 </html>
